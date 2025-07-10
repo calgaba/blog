@@ -1,0 +1,11 @@
+<div class="blog-container">
+
+  <blog-list class="blog-list"
+             [postsList]="postsList">
+  </blog-list>
+
+  <blog-form class="blog-form"
+             (postCreated)="onNewPost($event)">
+  </blog-form>
+
+</div>

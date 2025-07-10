@@ -1,0 +1,23 @@
+.blog-list ul.post {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.blog-list ul.post li {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.blog-list h3 {
+  margin: 0;
+}
+
+.blog-list img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}

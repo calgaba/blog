@@ -1,0 +1,13 @@
+<section class="blog-list">
+  <h2>Noticias publicadas</h2>
+  <ul class="post">
+    @for (post of postsList; track post.title) {
+      <li>
+        <h3>{{ post.title }}</h3>
+        <img [src]="post.image" alt="Imagen de la noticia" />
+        <p>{{ post.content }}</p>
+        <small>{{ post.date }}</small>
+      </li>
+    }
+  </ul>
+</section>
