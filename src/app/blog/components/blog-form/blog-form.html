@@ -1,4 +1,32 @@
 <section class="blog-form">
     <h2>Publicar nueva noticia</h2>
 
+    <input [(ngModel)]="newPost.title"
+           [class.input-error]="errorFields[0]"
+           (input)="updateField(0, newPost.title)"
+           placeholder="Escribe título"
+           (keydown.enter)="addPost()" />
+
+    <input [(ngModel)]="newPost.image"
+           [class.input-error]="errorFields[1]"
+           (input)="updateField(1, newPost.image)"
+           placeholder="Escribe URL de la imagen"
+           (keydown.enter)="addPost()" />
+
+    <textarea [(ngModel)]="newPost.content"
+              [class.input-error]="errorFields[2]"
+              (input)="updateField(2, newPost.content)"
+              placeholder="Escribe contenido"
+              (keydown.enter)="addPost()"></textarea>
+
+    <input type="date"
+           [(ngModel)]="newPost.date"
+           [class.input-error]="errorFields[3]"
+           (input)="updateField(3, newPost.date)"
+           (keydown.enter)="addPost()" />
+    <button (click)="addPost()">Publicar</button>
+
+    @if (formError) {
+      <p class="error">{{ formError }}</p>
+    }
   </section>
