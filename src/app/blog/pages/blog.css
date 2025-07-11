@@ -24,3 +24,20 @@
   flex-direction: column;
   justify-content: flex-start;
 }
+
+
+@media (max-width: 768px) {
+  .blog-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .blog-list,
+  .blog-form {
+    width: 100%;
+  }
+
+  .blog-form {
+    margin-top: 2rem; /* Separación visual entre lista y formulario */
+  }
+}
