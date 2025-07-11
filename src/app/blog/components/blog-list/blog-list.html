@@ -3,10 +3,7 @@
   <ul class="post">
     @for (post of postsList; track post.title) {
       <li>
-        <h3>{{ post.title }}</h3>
-        <img [src]="post.image" alt="Imagen de la noticia" />
-        <p>{{ post.content }}</p>
-        <small>{{ post.date }}</small>
+        <blog-article [article]="post"></blog-article>
       </li>
     }
   </ul>

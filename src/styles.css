@@ -1,1 +1,11 @@
-/* You can add global styles to this file, and also import other style files */
+h2, h3, p, input, textarea {
+  font-family: Arial, sans-serif;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-family: Arial, sans-serif;
+  color: #888; /* Puedes ajustar el color */
+  font-size: 14px; /* Ajusta según tu diseño */
+  opacity: 1; /* Asegura visibilidad en algunos navegadores */
+}

@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { updateFieldValidation, validateBlogPost } from '../../utils/form-validator';
 
 @Component({
   selector: 'blog-form',
@@ -9,7 +10,6 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./blog-form.css']
 })
 export class BlogFormComponent {
-
   @Output() postCreated = new EventEmitter<BlogPost>();
 
   newPost: BlogPost = {
@@ -23,35 +23,26 @@ export class BlogFormComponent {
   errorFields = [false, false, false, false];
 
   addPost() {
-    if (!this.validateForm()) return;
+    const result = validateBlogPost(this.newPost);
+
+    this.errorFields = result.errorFields;
+    this.formError = result.errorMessage;
+
+    if (!result.valid) return;
 
     this.postCreated.emit({ ...this.newPost });
 
-    this.newPost = { title: '', image: '', content: '', date: '' };
-    this.formError = '';
-    this.errorFields = [false, false, false, false];
+    this.initVariables();
   }
 
-  validateForm(): boolean {
-    const { title, image, content, date } = this.newPost;
-
-    this.errorFields = [
-      !title.trim(),
-      !image.trim(),
-      !content.trim(),
-      !date.trim()
-    ];
-
-    const hasErrors = this.errorFields.some(field => field);
-    if (hasErrors) {
-      this.formError = 'Todos los campos son obligatorios.';
-    }
-
-    return !hasErrors;
+  initVariables() {
+    this.newPost = { title: '', image: '', content: '', date: '' };
+    this.errorFields = [false, false, false, false];
+    this.formError = '';
   }
 
   updateField(index: number, value: string) {
-    this.errorFields[index] = !value.trim();
+    this.errorFields[index] = updateFieldValidation(value);
     if (this.errorFields.every(e => !e)) {
       this.formError = '';
     }

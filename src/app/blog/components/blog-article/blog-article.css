@@ -1,0 +1,13 @@
+.blog-article {
+  padding: 1rem;
+}
+
+.blog-article h2 {
+  margin-top: 0;
+}
+
+.blog-article img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.5rem 0;
+}

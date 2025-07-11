@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { BlogArticle } from "../blog-article/blog-article";
 
 @Component({
   selector: 'blog-list',
   standalone: true,
-  imports: [],
+  imports: [BlogArticle],
   templateUrl: './blog-list.html',
   styleUrls: ['./blog-list.css']
 })
