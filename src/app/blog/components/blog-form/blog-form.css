@@ -31,11 +31,9 @@
   cursor: pointer;
 }
 
-input[type="date"] {
+.blog-form date{
   font-family: Arial, sans-serif;
-  font-size: 1rem; /* si lo necesitas */
 }
-
 
 .input-error {
   border: 2px solid red;
